@@ -1,10 +1,16 @@
+from os.path import exists
+
 PATHFILES = "todos.txt"
 
 def get_todos(filepath=PATHFILES):
     """ Return the list to-do. The default parameter
      for de file name in 'todos.txt '"""
-    with open(filepath, 'r') as file_local:
-        todos_local = file_local.readlines()
+    if exists(PATHFILES):
+        with open(filepath, 'r') as file_local:
+            todos_local = file_local.readlines()
+    else:
+        with open(filepath, 'w') as file_local:
+            todos_local = []
     return todos_local
 
 def write_todos(todos_arg, filepath=PATHFILES):
