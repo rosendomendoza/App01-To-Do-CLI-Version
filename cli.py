@@ -1,4 +1,5 @@
 import functions
+import time
 
 def show_todos():
     todos = functions.get_todos()
@@ -15,6 +16,9 @@ print("ToDo App - CLI version")
 print("**********************")
 
 while True:
+    now = time.strftime("%b %d, %Y %H:%M:%S")
+    print()
+    print(now)
     show_todos()
     user_action = input("Enter an option <add, edit, complete or exit>: ")
     user_action = user_action.strip()
@@ -67,6 +71,6 @@ while True:
     elif user_action.startswith("exit"):
         break
     else:
-        print("Command not valid...")
+        print("Command not valid.Try again.")
 
 print("Bye..!")
